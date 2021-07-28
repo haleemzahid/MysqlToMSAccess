@@ -39,7 +39,9 @@ namespace WpfApp1
         private void btnSyncedClicked(object sender, RoutedEventArgs e)
         {
             FilterData();
-           
+            GetMySqlDataIntoMSAccess();
+
+
         }
 
         public OdbcConnection OpenMSAccessConnection()
@@ -424,11 +426,12 @@ namespace WpfApp1
         }
         public void GetMySqlDataIntoMSAccess()
         {
+                var con = OpenMSAccessConnection();
+            con.Open();
             foreach (var item in DataToInsertList)
             {
-                var con = OpenMSAccessConnection();
 
-
+                item.backoffice = "cust";
 
 
                 OdbcCommand cmd = con.CreateCommand();
@@ -463,7 +466,7 @@ namespace WpfApp1
                     + "','" + item.valeur_bien + "','" + item.rapport_type_expertise + "','" + item.rapport_plus_expertise
                     + "','" + item.Adresse_web_dossier + "','" + item.id_dossier_licielweb + "','" + item.type_de_dossier
                     + "','" + item.etat_licielweb + "','" + item.DATE_RDV_facture + "','" + item.Date_paiement_codee + "','" + item.AR_Amiante
-                    + "','" + item.Envoie_ADEME + "','" + item.backoffice + "','" + item.date_modification + "','" + item.date_derniere_sauvegarde+"')";
+                    + "','" + item.Envoie_ADEME + "','" + item.backoffice + "','" + item.date_modification + "','" + item.date_derniere_sauvegarde+ "','" + item.MySqlid+"')";
 
 
                 cmd.ExecuteNonQuery();
