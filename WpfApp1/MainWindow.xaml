@@ -13,7 +13,16 @@
         </Grid.ColumnDefinitions>
         <Label FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold">MySql</Label>
         <Label FontSize="25" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold">Ms Access</Label>
-        <DataGrid Margin="10 50 10 50" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False"></DataGrid>
+        <DataGrid Name="dg"  Margin="10 50 10 50" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Num_devis_numero}"/>
+                <DataGridTextColumn Binding="{Binding Num_dossier}"/>
+                <DataGridTextColumn Binding="{Binding Num_dossier_lié}"/>
+                <DataGridTextColumn Binding="{Binding Num_devis_numero}"/>
+                <DataGridTextColumn Binding="{Binding Certif_obtention}"/>
+                <DataGridTextColumn Binding="{Binding Date_1er_paiement}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <DataGrid Margin="10 50 10 50" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1"></DataGrid>
         <Button Grid.ColumnSpan="2" VerticalAlignment="Bottom" Width="300" Content="Sync" Click="btnSyncedClicked" FontSize="20" FontWeight="Bold" Margin="5 5 5 10" Height="35"/>
     </Grid>

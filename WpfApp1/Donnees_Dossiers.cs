@@ -8,9 +8,10 @@ namespace WpfApp1
 {
   public  class Donnees_Dossiers
     {
-        public string Num_devis_numero { get; set; }
-        public string Num_dossier { get; set; }
-        public string Num_dossier_lié { get; set; }
+        public int    Id { get; set; }
+        public string Num_devis_numero      { get; set; }
+        public string Num_dossier           { get; set; }
+        public string Num_dossier_lié       { get; set; }
         public string dordre_type { get; set; }
         public string dordre_Entete { get; set; }
         public string dordre_nom { get; set; }
@@ -53,8 +54,8 @@ namespace WpfApp1
         public string dossier_Nom { get; set; }
         public string dossier_Acces_relatif { get; set; }
         public string dossier_Archive { get; set; }
-        public int dossier_clot { get; set; }
-        public int dossier_etat_rapport { get; set; }
+        public int    dossier_clot { get; set; }
+        public int    dossier_etat_rapport { get; set; }
         public string dossier_etat_paie { get; set; }
         public string dossier_observations { get; set; }
         public string rapport_date { get; set; }
@@ -62,9 +63,9 @@ namespace WpfApp1
         public string rapport_destinataires { get; set; }
         public string rapport_facturation { get; set; }
         public string rapport_type { get; set; }
-        public int rapport_amiante_FCFP { get; set; }
-        public int rapport_amiante_Autres { get; set; }
-        public int rapport_termites_resultat { get; set; }
+        public int    rapport_amiante_FCFP { get; set; }
+        public int    rapport_amiante_Autres { get; set; }
+        public int    rapport_termites_resultat { get; set; }
         public string notaire_Entete { get; set; }
         public string notaire_nom { get; set; }
         public string notaire_adresse { get; set; }
@@ -80,9 +81,9 @@ namespace WpfApp1
         public string complement_visite { get; set; }
         public string operateur_reperage { get; set; }
         public string photo_de_presentation { get; set; }
-        public int facturation_restante { get; set; }
+        public int    facturation_restante { get; set; }
         public string facturation_compte_client { get; set; }
-        public int facturation_remise_globale { get; set; }
+        public int    facturation_remise_globale { get; set; }
         public string facturation_date { get; set; }
         public string facturation_date_fin { get; set; }
         public string Donnee1 { get; set; }
@@ -113,9 +114,9 @@ namespace WpfApp1
         public string Signature_Opérateur { get; set; }
         public string Id_facturation { get; set; }
         public string Appareil_CREP { get; set; }
-        public int Date_RDV { get; set; }
-        public int Facture_validation { get; set; }
-        public int Paiement_validation { get; set; }
+        public int    Date_RDV { get; set; }
+        public int    Facture_validation { get; set; }
+        public int    Paiement_validation { get; set; }
         public string rapport_plus { get; set; }
         public string Commerciaux { get; set; }
         public string Commerciaux_autre { get; set; }
@@ -131,13 +132,13 @@ namespace WpfApp1
         public string id_dossier_licielweb { get; set; }
         public string type_de_dossier { get; set; }
         public string etat_licielweb { get; set; }
-        public int DATE_RDV_facture { get; set; }
-        public int Date_paiement_codee { get; set; }
+        public int    DATE_RDV_facture { get; set; }
+        public int    Date_paiement_codee { get; set; }
         public string AR_Amiante { get; set; }
         public string Envoie_ADEME { get; set; }
         public string backoffice { get; set; }
         public string date_modification { get; set; }
-        public int date_derniere_sauvegarde { get; set; }
+        public int    date_derniere_sauvegarde { get; set; }
             }
 }
 
