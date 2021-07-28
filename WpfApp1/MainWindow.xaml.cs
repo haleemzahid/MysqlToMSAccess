@@ -437,14 +437,14 @@ namespace WpfApp1
                 OdbcCommand cmd = con.CreateCommand();
                 cmd.CommandText = "INSERT INTO Donnees_Dossiers VALUES('"+item.Num_devis_numero+"','"+item.Num_dossier+"','"+item.Num_dossier_lié+"','"+item.dordre_type+"','"+item.dordre_Entete+"','"+item.dordre_nom+"','"+item.dordre_adresse+"','"+item.dordre_cp+"','"+item.dordre_ville+"','"+item.dordre_tel+"','"+item.dordre_fax+"','"+item.dordre_mail+"','"+item.proprietaire_Entete+
                     "','"+item.proprietaire_nom+"','"+item.proprietaire_adresse+"','"+item.proprietaire_cp+"','"+item.proprietaire_ville+"','"+item.proprietaire_tel+"','"+item.proprietaire_fax+"','"+item.proprietaire_mail+"','"+item.bien_adresse+
-                    "','"+item.bien_cp+"','"+item.bien_ville+"','"+item.bien_lieu_interne+"','"+item.bien_cadastre+"','"+item.bien_lieu_interne
-                    +"','"+item.bien_cadastre+"','"+item.bien_lot+"','"+item.bien_lot_cave_cellier+"','"+item.bien_lot_parking_garage
+                    "','"+item.bien_cp+"','"+item.bien_ville+"','"+item.bien_lieu_interne+"','"+item.bien_cadastre+"','"+item.bien_lot
+                    +"','"+item.bien_lot_cave_cellier+"','"+item.bien_lot_parking_garage
                     +"','"+item.bien_lot_autre+"','" + item.bien_surface_terrain + "','" + item.bien_année_construction
                     + "','" + item.bien_parcelle + "','" + item.bien_nature + "','" + item.bien_IGH_ERP + "','" + item.bien_description
                     + "','" + item.rdv_date + "','" + item.rdv_heure + "','" + item.rdv_duree + "','" + item.rdv_contact_nom_tel
                     + "','" + item.rdv_precisions + "','" + item.rdv_clefs + "','" + item.dossier_Acces + "','" + item.dossier_Nom
                     + "','" + item.dossier_Acces_relatif + "','" + item.dossier_Archive + "','" + item.dossier_clot
-                    + "','" + item.dossier_etat + "','" + item.dossier_etat_paie + "','" + item.dossier_observations
+                    + "','" + item.dossier_etat_rapport + "','" + item.dossier_etat_paie + "','" + item.dossier_observations
                     + "','" + item.rapport_date + "','" + item.rapport_date_envoyee + "','" + item.rapport_destinataires
                     + "','" + item.rapport_facturation + "','" + item.rapport_type + "','" + item.rapport_amiante_FCFP
                     + "','" + item.rapport_amiante_Autres + "','" + item.rapport_termites_resultat
@@ -456,7 +456,7 @@ namespace WpfApp1
                     + "','" + item.facturation_date + "','" + item.facturation_date_fin + "','" + item.Donnee1 + "','" + item.Donnee2
                     + "','" + item.Donnee3 + "','" + item.Donnee4 + "','" + item.Donnee5+ "','" + item.Donnee6 + "','" + item.Donnee7
                     + "','" + item.Donnee8 + "','" + item.Donnee9 + "','" + item.Donnee10 + "','" + item.Donnee11 + "','" + item.Donnee12
-                    + "','" + item.Donnee3 + "','" + item.Donnee14 + "','" + item.Donnee15 + "','" + item.Donnee16 + "','" + item.Donnee17
+                    + "','" + item.Donnee13 + "','" + item.Donnee14 + "','" + item.Donnee15 + "','" + item.Donnee16 + "','" + item.Donnee17
                     + "','" + item.Donnee18 + "','" + item.Donnee19 + "','" + item.Mission_Memo + "','" + item.operateur_certif_num
                     + "','" + item.operateur_certif_societe + "','" + item.operateur_certif_date + "','" + item.Mode_Access
                     + "','" + item.Date_commande + "','" + item.Signature_Opérateur + "','" + item.Id_facturation
