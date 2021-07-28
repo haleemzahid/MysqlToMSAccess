@@ -8,11 +8,12 @@ namespace WpfApp1
 {
   public  class Donnees_Dossiers
     {
-        public Nullable<int>    Id { get; set; }
-        public  string Num_devis_numero { get; set; }
-        public string Num_dossier           { get; set; }
-        public string Num_dossier_lié       { get; set; }
-        public string dordre_type { get; set; }
+        public Nullable<int> Id { get; set; } = null;
+        public Nullable<int> MySqlid { get; set; } = null;
+        public  string Num_devis_numero { get; set; } = null;
+        public string Num_dossier           { get; set; } = null;
+        public string Num_dossier_lié       { get; set; } = null;
+        public string dordre_type { get; set; } = null;
         public string dordre_Entete { get; set; }
         public string dordre_nom { get; set; }
         public string dordre_adresse { get; set; }

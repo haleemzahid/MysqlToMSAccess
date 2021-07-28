@@ -15,12 +15,19 @@
         <Label FontSize="25" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold">Ms Access</Label>
         <DataGrid Name="dg"  Margin="10 50 10 50" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Num_devis_numero}"/>
-                <DataGridTextColumn Binding="{Binding Num_dossier}"/>
-                <DataGridTextColumn Binding="{Binding Num_dossier_lié}"/>
-                <DataGridTextColumn Binding="{Binding Num_devis_numero}"/>
-                <DataGridTextColumn Binding="{Binding Certif_obtention}"/>
-                <DataGridTextColumn Binding="{Binding Date_1er_paiement}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding IsChecked}" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="id" Binding="{Binding donnees_Dossiers.id}"/>
+                <DataGridTextColumn Header="Num_devis_numero" Binding="{Binding donnees_Dossiers.Num_devis_numero}"/>
+                <DataGridTextColumn Header="Num_dossier" Binding="{Binding donnees_Dossiers.Num_dossier}"/>
+                <DataGridTextColumn Header="Num_dossier_lié" Binding="{Binding donnees_Dossiers.Num_dossier_lié}"/>
+                <DataGridTextColumn Header="dordre_nom" Binding="{Binding donnees_Dossiers.dordre_nom}"/>
+                <DataGridTextColumn Header="dordre_mail" Binding="{Binding donnees_Dossiers.dordre_mail}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid Margin="10 50 10 50" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1"></DataGrid>
