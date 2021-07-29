@@ -35,6 +35,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             dg.ItemsSource =mysqllist = GetMySqlList();
+            MsAccessDG.ItemsSource = GetMSAccessList();
 
         }
         private void btnSyncedClicked(object sender, RoutedEventArgs e)
@@ -59,6 +60,7 @@ namespace WpfApp1
             }
             MessageBox.Show(DataToInsertList.Count + " rows affected out of "+Checkedl.Count);
 
+            MsAccessDG.ItemsSource = GetMSAccessList();
 
         }
 
@@ -244,28 +246,40 @@ namespace WpfApp1
 
             while (reader.Read())
             {
-                
+                string Num_devis_numero="", Num_dossier = "", Num_dossier_lié = "", dordre_nom = "", dordre_mail = "";
                 int a = -1;
-                if(!Convert.IsDBNull(reader.GetValue(131)))
-                {
-
-                 a = Convert.ToInt32(reader.GetValue(131));
-                }
+                Num_devis_numero = (!Convert.IsDBNull(1) ? reader.GetString(1) : "");
+                Num_dossier = (!Convert.IsDBNull(2) ? reader.GetString(2) : "");
+                Num_dossier_lié = (!Convert.IsDBNull(3) ? reader.GetString(3) : "");
+                dordre_nom = (!Convert.IsDBNull(6) ? reader.GetString(6) : "");
+                dordre_mail = (!Convert.IsDBNull(1) ? reader.GetString(12) : "");
+                a = (!Convert.IsDBNull(1) ? reader.GetInt16(131) : -1);
                 l.Add(new Donnees_Dossiers()
                 {
 
 
                     Id = Convert.ToInt32(reader.GetInt32(0)),
 
+                    Num_devis_numero = Num_devis_numero,
+                    Num_dossier = Num_dossier,
+                    Num_dossier_lié = Num_dossier_lié,
+
+                    dordre_nom = dordre_nom,
+                    dordre_mail = dordre_mail,
                     MySqlid = a
 
                 }
 
-                   ) ; ;
+                   ); ;
             }
             reader.Close();
             return l;
         }
+
+
+
+
+
         public MySqlConnection OpenMySqlConnection()
         {
             var builder = new MySqlConnectionStringBuilder

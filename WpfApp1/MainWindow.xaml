@@ -30,7 +30,16 @@
                 <DataGridTextColumn Header="dordre_mail" Binding="{Binding donnees_Dossiers.dordre_mail}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Margin="10 50 10 50" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1"></DataGrid>
+        <DataGrid Margin="10 50 10 50" Name="MsAccessDG" IsReadOnly="True" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding donnees_Dossiers.Id}"/>
+                <DataGridTextColumn Header="Num_devis_numero" Binding="{Binding donnees_Dossiers.Num_devis_numero}"/>
+                <DataGridTextColumn Header="Num_dossier" Binding="{Binding donnees_Dossiers.Num_dossier}"/>
+                <DataGridTextColumn Header="Num_dossier_lié" Binding="{Binding donnees_Dossiers.Num_dossier_lié}"/>
+                <DataGridTextColumn Header="dordre_nom" Binding="{Binding donnees_Dossiers.dordre_nom}"/>
+                <DataGridTextColumn Header="dordre_mail" Binding="{Binding donnees_Dossiers.dordre_mail}"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Grid.ColumnSpan="2" VerticalAlignment="Bottom" Width="300" Content="Sync" Click="btnSyncedClicked" FontSize="20" FontWeight="Bold" Margin="5 5 5 10" Height="35"/>
     </Grid>
 </Window>
