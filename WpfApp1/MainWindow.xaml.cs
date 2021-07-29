@@ -25,6 +25,7 @@ namespace WpfApp1
     public partial class MainWindow : Window
     {
         List<Donees> mysqllist = new List<Donees>();
+        List<Donees> Checkedl = new List<Donees>();
        
         private  MySqlConnection connection;
         List<Donnees_Dossiers> DataToInsertList = new List<Donnees_Dossiers>();
@@ -40,6 +41,17 @@ namespace WpfApp1
         {
             FilterData();
             GetMySqlDataIntoMSAccess();
+            if (DataToInsertList.Count == 0&&mysqllist.Count==0)
+            {
+                MessageBox.Show("No data in MySql Database to insert into MS Access");
+                    return;
+            }
+            else if(DataToInsertList.Count == 0)
+            {
+                MessageBox.Show("Data Is already synced");
+                return;
+            }
+            MessageBox.Show(DataToInsertList.Count + " rows affected out of "+Checkedl.Count);
 
 
         }
@@ -226,145 +238,24 @@ namespace WpfApp1
 
             while (reader.Read())
             {
+                
+                int a = 0;
+                if(!Convert.IsDBNull(reader.GetValue(131)))
+                {
+
+                 a = Convert.ToInt32(reader.GetValue(131));
+                }
                 l.Add(new Donnees_Dossiers()
                 {
 
 
-                    Id =Convert.ToInt32( reader.GetInt32(0)),
-                    Num_devis_numero =Convert.ToString(reader.GetString(1)),
-                    Num_dossier = Convert.ToString(reader.GetString(2)),
-                    Num_dossier_lié = Convert.ToString(reader.GetString(3)),
-                    dordre_type = Convert.ToString(reader.GetString(4)),
-                    dordre_Entete = Convert.ToString(reader.GetString(5)),
-                    dordre_nom = Convert.ToString(reader.GetString(6)),
-                    dordre_adresse = Convert.ToString(reader.GetString(7)),
-                    dordre_cp = Convert.ToString(reader.GetString(8)),
-                    dordre_ville = Convert.ToString(reader.GetString(9)),
-                    dordre_tel = Convert.ToString(reader.GetString(10)),
-                    //dordre_fax = Convert.ToString(reader.GetString(11)),
-                    //dordre_mail = reader.GetString(12),
-                    //proprietaire_Entete = reader.GetString(13),
-                    //proprietaire_nom = reader.GetString(14),
-                    //proprietaire_adresse = reader.GetString(15),
-                    //proprietaire_cp = reader.GetString(16),
-                    //proprietaire_ville = reader.GetString(17),
-                    //proprietaire_tel = reader.GetString(18),
-                    //proprietaire_fax = reader.GetString(19),
-                    //proprietaire_mail = reader.GetString(20),
-                    //bien_adresse = reader.GetString(21),
-                    //bien_cp = reader.GetString(22),
-                    //bien_ville = reader.GetString(23),
-                    //bien_lieu_interne = reader.GetString(24),
-                    //bien_cadastre = reader.GetString(25),
-                    //bien_lot = reader.GetString(26),
-                    //bien_lot_cave_cellier = reader.GetString(27),
-                    //bien_lot_parking_garage = reader.GetString(28),
-                    //bien_lot_autre = reader.GetString(29),
-                    //bien_surface_terrain = reader.GetString(30),
-                    //bien_année_construction = reader.GetString(31),
-                    //bien_parcelle = reader.GetString(32),
-                    //bien_nature = reader.GetString(33),
-                    //bien_IGH_ERP = reader.GetString(34),
-                    //bien_description = reader.GetString(35),
-                    //rdv_date = reader.GetString(36),
-                    //rdv_heure = reader.GetString(37),
-                    //rdv_duree = reader.GetString(38),
-                    //rdv_contact_nom_tel = reader.GetString(39),
-                    //rdv_precisions = reader.GetString(40),
-                    //rdv_clefs = reader.GetString(41),
-                    //dossier_Acces = reader.GetString(42),
-                    //dossier_Nom = reader.GetString(43),
-                    //dossier_Acces_relatif = reader.GetString(44),
-                    //dossier_Archive = reader.GetString(45),
-                    //dossier_clot = reader.GetInt32(46),
-                    //dossier_etat_rapport = reader.GetInt32(47),
-                    //dossier_etat_paie = reader.GetString(48),
-                    //dossier_observations = reader.GetString(49),
-                    //rapport_date = reader.GetString(50),
-                    //rapport_date_envoyee = reader.GetString(51),
-                    //rapport_destinataires = reader.GetString(52),
-                    //rapport_facturation = reader.GetString(53),
-                    //rapport_type = reader.GetString(54),
-                    //rapport_amiante_FCFP = reader.GetInt32(55),
-                    //rapport_amiante_Autres = reader.GetInt32(56),
-                    //rapport_termites_resultat = reader.GetInt32(57),
-                    //notaire_Entete = reader.GetString(58),
-                    //notaire_nom = reader.GetString(59),
-                    //notaire_adresse = reader.GetString(60),
-                    //notaire_cp = reader.GetString(61),
-                    //notaire_ville = reader.GetString(62),
-                    //notaire_tel = reader.GetString(63),
-                    //notaire_fax = reader.GetString(64),
-                    //notaire_mail = reader.GetString(65),
-                    //bien_description_cases = reader.GetString(66),
-                    //bien_perimetre = reader.GetString(67),
-                    //rapport_destinataires_mail = reader.GetString(68),
+                    Id = Convert.ToInt32(reader.GetInt32(0)),
 
-                    //dossier_etat = reader.GetString(69),
-                    //complement_visite = reader.GetString(70),
-                    //operateur_reperage = reader.GetString(71),
-                    //photo_de_presentation = reader.GetString(72),
-                    //facturation_restante = reader.GetInt32(73),
-                    //facturation_compte_client = reader.GetString(74),
-                    //facturation_remise_globale = reader.GetInt32(75),
-                    //facturation_date = reader.GetString(76),
-                    //facturation_date_fin = reader.GetString(77),
-                    //Donnee1 = reader.GetString(78),
-                    //Donnee2 = reader.GetString(79),
-                    //Donnee3 = reader.GetString(80),
-                    //Donnee4 = reader.GetString(81),
-                    //Donnee5 = reader.GetString(82),
-                    //Donnee6 = reader.GetString(83),
-                    //Donnee7 = reader.GetString(84),
-                    //Donnee8 = reader.GetString(85),
-                    //Donnee9 = reader.GetString(86),
-                    //Donnee10 = reader.GetString(87),
-                    //Donnee11 = reader.GetString(88),
-                    //Donnee12 = reader.GetString(89),
-                    //Donnee13 = reader.GetString(90),
-                    //Donnee14 = reader.GetString(91),
-                    //Donnee15 = reader.GetString(92),
-                    //Donnee16 = reader.GetString(93),
-                    //Donnee17 = reader.GetString(94),
-                    //Donnee18 = reader.GetString(95),
-                    //Donnee19 = reader.GetString(96),
-                    //Mission_Memo = reader.GetString(97),
-                    //operateur_certif_num = reader.GetString(98),
-                    //operateur_certif_societe = reader.GetString(99),
-                    //operateur_certif_date = reader.GetString(100),
-                    //Mode_Access = reader.GetString(101),
-                    //Date_commande = reader.GetString(102),
-                    //Signature_Opérateur = reader.GetString(103),
-                    //Id_facturation = reader.GetString(104),
-                    //Appareil_CREP = reader.GetString(105),
-                    //Date_RDV = reader.GetInt32(106),
-                    //Facture_validation = reader.GetInt32(107),
-                    //Paiement_validation = reader.GetInt32(108),
-                    //rapport_plus = reader.GetString(109),
-                    //Commerciaux = reader.GetString(110),
-                    //Commerciaux_autre = reader.GetString(111),
-                    //Certif_obtention = reader.GetString(112),
-                    //Date_1er_paiement = reader.GetString(113),
-                    //id_dossier_liciweb = reader.GetString(114),
-                    //id_donneur_ordre = reader.GetString(115),
-                    //conclusion = reader.GetString(116),
-                    //valeur_bien = reader.GetString(117),
-                    //rapport_type_expertise = reader.GetString(118),
-                    //rapport_plus_expertise = reader.GetString(119),
-                    //Adresse_web_dossier = reader.GetString(120),
-                    //id_dossier_licielweb = reader.GetString(121),
-                    //type_de_dossier = reader.GetString(122),
-                    //etat_licielweb = reader.GetString(123),
-                    //DATE_RDV_facture = reader.GetInt32(124),
-                    //Date_paiement_codee = reader.GetInt32(125),
-                    //AR_Amiante = reader.GetString(126),
-                    //Envoie_ADEME = reader.GetString(127),
-                    //backoffice = reader.GetString(128),
-                    //date_modification = reader.GetString(129),
-                    //date_derniere_sauvegarde = reader.GetInt32(130)
+                    MySqlid = a
+
                 }
 
-                   );
+                   ) ; ;
             }
             reader.Close();
             return l;
@@ -390,15 +281,19 @@ namespace WpfApp1
 
             DataToInsertList = new List<Donnees_Dossiers>();
             int count=0;
-            var MysqlData = mysqllist.Where(x => x.IsChecked == true).ToList() ;
+            Checkedl = mysqllist.Where(x => x.IsChecked == true).ToList() ;
             var MSAccessData = GetMSAccessList();
-            foreach (var item in MysqlData)
+            foreach (var item in Checkedl)
             {
                 foreach (var item2 in MSAccessData)
                 {
-                    //if (item2.MySqlid == item.donnees_Dossiers.Id)
-                    //    count = 1;
-                  
+                    if (item2.MySqlid == item.donnees_Dossiers.Id)
+                    {
+
+                        count = 1;
+                        break;
+                    }
+
                 }
                 if (count != 1)
                 {
@@ -431,7 +326,7 @@ namespace WpfApp1
             foreach (var item in DataToInsertList)
             {
 
-                item.backoffice = "cust";
+              
 
 
                 OdbcCommand cmd = con.CreateCommand();
@@ -442,7 +337,7 @@ namespace WpfApp1
                     ",rdv_date,rdv_heure,rdv_duree,rdv_contact_nom_tel,rdv_precisions,rdv_clefs,dossier_Acces,dossier_Nom,dossier_Acces_relatif" +
                     ",dossier_Archive,dossier_clot,dossier_etat_rapport,dossier_etat_paie,dossier_observations,rapport_date,rapport_date_envoyee" +
                     ",rapport_destinataires,rapport_facturation,rapport_type,rapport_amiante_FCFP,rapport_amiante_Autres,rapport_termites_resultat" +
-                    ",notaire_Entete,notaire_nom,notaire_adressenotaire_cp,notaire_ville,notaire_tel,notaire_fax,notaire_mail,bien_description_cases" +
+                    ",notaire_Entete,notaire_nom,notaire_adresse,notaire_cp,notaire_ville,notaire_tel,notaire_fax,notaire_mail,bien_description_cases" +
                     ",bien_perimetre,rapport_destinataires_mail,dossier_etat,complement_visite,operateur_reperage,photo_de_presentation,facturation_restante" +
                     ",facturation_compte_client,facturation_remise_globale,facturation_date,facturation_date_fin,Donnee1,Donnee2,Donnee3,Donnee4" +
                     ",Donnee5,Donnee6,Donnee7,Donnee8,Donnee9,Donnee10,Donnee11,Donnee12,Donnee13,Donnee14,Donnee15,Donnee16,Donnee17,Donnee18,Donnee19" +
@@ -481,7 +376,7 @@ namespace WpfApp1
                     + "','" + item.valeur_bien + "','" + item.rapport_type_expertise + "','" + item.rapport_plus_expertise
                     + "','" + item.Adresse_web_dossier + "','" + item.id_dossier_licielweb + "','" + item.type_de_dossier
                     + "','" + item.etat_licielweb + "','" + item.DATE_RDV_facture + "','" + item.Date_paiement_codee + "','" + item.AR_Amiante
-                    + "','" + item.Envoie_ADEME + "','" + item.backoffice + "','" + item.date_modification + "','" + item.date_derniere_sauvegarde+ "','" + item.MySqlid+"')";
+                    + "','" + item.Envoie_ADEME + "','" + item.backoffice + "','" + item.date_modification + "','" + item.date_derniere_sauvegarde+ "','" + item.Id+"')";
 
                 cmd.ExecuteNonQuery();
                 con.Close();

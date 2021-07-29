@@ -9,7 +9,6 @@ namespace WpfApp1
   public  class Donnees_Dossiers
     {
         public Nullable<int> Id { get; set; } = 0;
-        
         public  string Num_devis_numero { get; set; } = "";
         public string Num_dossier           { get; set; } = "";
         public string Num_dossier_lié       { get; set; } = "";
