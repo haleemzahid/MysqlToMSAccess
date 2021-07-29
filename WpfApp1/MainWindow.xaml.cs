@@ -396,8 +396,8 @@ namespace WpfApp1
             {
                 foreach (var item2 in MSAccessData)
                 {
-                    if (item2.MySqlid == item.donnees_Dossiers.Id)
-                        count = 1;
+                    //if (item2.MySqlid == item.donnees_Dossiers.Id)
+                    //    count = 1;
                   
                 }
                 if (count != 1)
@@ -435,7 +435,22 @@ namespace WpfApp1
 
 
                 OdbcCommand cmd = con.CreateCommand();
-                cmd.CommandText = "INSERT INTO Donnees_Dossiers VALUES('"+item.Num_devis_numero+"','"+item.Num_dossier+"','"+item.Num_dossier_lié+"','"+item.dordre_type+"','"+item.dordre_Entete+"','"+item.dordre_nom+"','"+item.dordre_adresse+"','"+item.dordre_cp+"','"+item.dordre_ville+"','"+item.dordre_tel+"','"+item.dordre_fax+"','"+item.dordre_mail+"','"+item.proprietaire_Entete+
+                cmd.CommandText = "INSERT INTO Donnees_Dossiers(Num_devis_numero,Num_dossier,Num_dossier_lié,dordre_type,dordre_Entete,dordre_nom,dordre_adresse,dordre_cp,dordre_ville,dordre_tel,dordre_fax,dordre_mail,proprietaire_Entete," +
+                    "proprietaire_nom,proprietaire_adresse,proprietaire_cp,proprietaire_ville,proprietaire_tel,proprietaire_fax,proprietaire_mail,bien_adresse" +
+                    ",bien_cp,bien_ville,bien_lieu_interne,bien_cadastre,bien_lot,bien_lot_cave_cellier,bien_lot_parking_garage," +
+                    "bien_lot_autre,bien_surface_terrain,bien_année_construction,bien_parcelle,bien_nature,bien_IGH_ERP,bien_description" +
+                    ",rdv_date,rdv_heure,rdv_duree,rdv_contact_nom_tel,rdv_precisions,rdv_clefs,dossier_Acces,dossier_Nom,dossier_Acces_relatif" +
+                    ",dossier_Archive,dossier_clot,dossier_etat_rapport,dossier_etat_paie,dossier_observations,rapport_date,rapport_date_envoyee" +
+                    ",rapport_destinataires,rapport_facturation,rapport_type,rapport_amiante_FCFP,rapport_amiante_Autres,rapport_termites_resultat" +
+                    ",notaire_Entete,notaire_nom,notaire_adressenotaire_cp,notaire_ville,notaire_tel,notaire_fax,notaire_mail,bien_description_cases" +
+                    ",bien_perimetre,rapport_destinataires_mail,dossier_etat,complement_visite,operateur_reperage,photo_de_presentation,facturation_restante" +
+                    ",facturation_compte_client,facturation_remise_globale,facturation_date,facturation_date_fin,Donnee1,Donnee2,Donnee3,Donnee4" +
+                    ",Donnee5,Donnee6,Donnee7,Donnee8,Donnee9,Donnee10,Donnee11,Donnee12,Donnee13,Donnee14,Donnee15,Donnee16,Donnee17,Donnee18,Donnee19" +
+                    ",Mission_Memo,operateur_certif_num,operateur_certif_societe,operateur_certif_date,Mode_Access,Date_commande,Signature_Opérateur" +
+                    ",Id_facturation,Appareil_CREP,Date_RDV,Facture_validation,Paiement_validation,rapport_plus,Commerciaux,Commerciaux_autre,Certif_obtention" +
+                    ",Date_1er_paiement,id_dossier_liciweb,id_donneur_ordre,conclusion,valeur_bien,rapport_type_expertise,rapport_plus_expertise" +
+                    ",Adresse_web_dossier,id_dossier_licielweb,type_de_dossier,etat_licielweb,DATE_RDV_facture,Date_paiement_codee,AR_Amiante" +
+                    ",Envoie_ADEME,backoffice,date_modification,date_derniere_sauvegarde,MySqlid) VALUES('" + item.Num_devis_numero+"','"+item.Num_dossier+"','"+item.Num_dossier_lié+"','"+item.dordre_type+"','"+item.dordre_Entete+"','"+item.dordre_nom+"','"+item.dordre_adresse+"','"+item.dordre_cp+"','"+item.dordre_ville+"','"+item.dordre_tel+"','"+item.dordre_fax+"','"+item.dordre_mail+"','"+item.proprietaire_Entete+
                     "','"+item.proprietaire_nom+"','"+item.proprietaire_adresse+"','"+item.proprietaire_cp+"','"+item.proprietaire_ville+"','"+item.proprietaire_tel+"','"+item.proprietaire_fax+"','"+item.proprietaire_mail+"','"+item.bien_adresse+
                     "','"+item.bien_cp+"','"+item.bien_ville+"','"+item.bien_lieu_interne+"','"+item.bien_cadastre+"','"+item.bien_lot
                     +"','"+item.bien_lot_cave_cellier+"','"+item.bien_lot_parking_garage
@@ -467,7 +482,6 @@ namespace WpfApp1
                     + "','" + item.Adresse_web_dossier + "','" + item.id_dossier_licielweb + "','" + item.type_de_dossier
                     + "','" + item.etat_licielweb + "','" + item.DATE_RDV_facture + "','" + item.Date_paiement_codee + "','" + item.AR_Amiante
                     + "','" + item.Envoie_ADEME + "','" + item.backoffice + "','" + item.date_modification + "','" + item.date_derniere_sauvegarde+ "','" + item.MySqlid+"')";
-
 
                 cmd.ExecuteNonQuery();
                 con.Close();
