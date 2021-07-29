@@ -41,6 +41,12 @@ namespace WpfApp1
         {
             FilterData();
             GetMySqlDataIntoMSAccess();
+            if (Checkedl.Count==0&&mysqllist.Count>0)
+            {
+
+                MessageBox.Show("Please select data to sync");
+                    return;
+            }
             if (DataToInsertList.Count == 0&&mysqllist.Count==0)
             {
                 MessageBox.Show("No data in MySql Database to insert into MS Access");
@@ -239,7 +245,7 @@ namespace WpfApp1
             while (reader.Read())
             {
                 
-                int a = 0;
+                int a = -1;
                 if(!Convert.IsDBNull(reader.GetValue(131)))
                 {
 
@@ -379,13 +385,13 @@ namespace WpfApp1
                     + "','" + item.Envoie_ADEME + "','" + item.backoffice + "','" + item.date_modification + "','" + item.date_derniere_sauvegarde+ "','" + item.Id+"')";
 
                 cmd.ExecuteNonQuery();
-                con.Close();
 
 
 
 
 
             }
+                con.Close();
 
 
 

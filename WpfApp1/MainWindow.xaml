@@ -22,7 +22,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="id" Binding="{Binding donnees_Dossiers.id}"/>
+                <DataGridTextColumn Header="id" Binding="{Binding donnees_Dossiers.Id}"/>
                 <DataGridTextColumn Header="Num_devis_numero" Binding="{Binding donnees_Dossiers.Num_devis_numero}"/>
                 <DataGridTextColumn Header="Num_dossier" Binding="{Binding donnees_Dossiers.Num_dossier}"/>
                 <DataGridTextColumn Header="Num_dossier_lié" Binding="{Binding donnees_Dossiers.Num_dossier_lié}"/>
